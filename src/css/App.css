@@ -2,9 +2,10 @@
 
 @theme {
   --color-primary: #213245;
-  --color-secundary: #bad1e0;
-  --color-tertiary: #00000029;
-  --color-quaternary: #ffffff;
+  --color-secundary: #446a7c;
+  --color-tertiary: #bad1e0;
+  --color-quaternary: #00000029;
+  --color-quintary: #ffffff;
 }
 
 @layer components {
