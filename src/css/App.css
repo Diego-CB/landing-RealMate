@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #213245;
+  --color-secundary: #bad1e0;
+  --color-tertiary: #00000029;
+  --color-quaternary: #ffffff;
+}
+
+@layer components {
+  .header-row {
+    @apply px-4 py-2 text-xs;
+  }
+}
+
+#root {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}

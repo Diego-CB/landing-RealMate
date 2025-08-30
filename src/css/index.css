@@ -1,0 +1,41 @@
+@font-face {
+  font-family: "Champagne & Limousines";
+  src: url("/fonts/Champagne & Limousines.eot"); /* For IE9 compatibility */
+  src: url("/fonts/Champagne & Limousines.woff2") format("woff2"),
+    url("/fonts/Champagne & Limousines.woff") format("woff"),
+    url("/fonts/Champagne & Limousines.ttf") format("truetype"),
+    url("/fonts/Champagne & Limousines.svg#Champagne & Limousines")
+      format("svg"),
+    url("/fonts/Champagne & Limousines.eot?#iefix") format("embedded-opentype"); /* For older IE */
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  font-family: "Gill Sans MT", "Champagne & Limousines", Helvetica, Arial,
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
