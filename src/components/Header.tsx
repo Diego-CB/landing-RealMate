@@ -1,40 +1,62 @@
 import { Link, useNavigate } from "react-router-dom";
 import { FiLogIn } from "react-icons/fi";
-import logo from "../assets/header-logo.png";
+import { IoNewspaper } from "react-icons/io5";
+import { FaRegUserCircle } from "react-icons/fa";
+import { MdKey } from "react-icons/md";
+import logo from "../assets/images/logos/header-logo.png";
 import Button from "./Button";
 
 const Header = () => {
   const navigate = useNavigate();
 
+  //FIXME: adjunst grid and flexes
   return (
-    <nav className="w-full h-[8vh] bg-primary">
-      <img src={logo} alt="Realmate" />
+    <nav
+      className={`
+        bg-primary w-full h-[110px]
+        grid grid-cols-[20vw_1fr_1fr]
+        px-[4vw]
+      `}
+    >
+      {/* Logo */}
+      <button
+        className="cursor-pointer flex items-center justify-start"
+        onClick={() => navigate("/")}
+      >
+        <img
+          src={logo}
+          alt="Realmate"
+          className="h-[80px] w-auto object-contain"
+        />
+      </button>
+
+      <div />
 
       {/* Link Buttons */}
-      <div>
+      <div className="h-full flex items-center justify-end gap-4">
         <Button
           text="Comprar"
-          logo={<FiLogIn />}
+          logo={<MdKey className="full-size " />}
           onClick={() => navigate("/sales")}
         />
 
         <Button
           text="Quienes somos"
-          logo={<FiLogIn />}
+          logo={<FaRegUserCircle className="full-size" />}
           onClick={() => navigate("/about")}
         />
 
         <Button
           text="Regístrate"
-          logo={<FiLogIn />}
-          onClick={() => navigate("/about")}
+          logo={<IoNewspaper className="full-size" />}
+          onClick={() => navigate("/register")}
         />
 
         <Button
           text="Log-in"
           colorCombination="secondary"
-          logo={<FiLogIn />}
-          onClick={() => navigate("/about")}
+          logo={<FiLogIn className="full-size" />}
+          onClick={() => navigate("/login")}
         />
       </div>
     </nav>

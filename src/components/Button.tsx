@@ -10,9 +10,10 @@ type ButtonProps = {
 
 const colorCombinations = {
   primary: "bg-secundary text-white ",
-  secondary: "bg-quintary text-secundary ",
+  secondary: "bg-white text-secundary ",
 };
 
+//TODO ver animación de hover con nats
 const Button: React.FC<ButtonProps> = ({
   text,
   logo,
@@ -25,16 +26,22 @@ const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       className={`
         ${colorCombinations[colorCombination]}
-        flex items-center justify-center gap-2
-        px-4 py-2 rounded-xl
-        font-arial font-semibold
+        font-gill 
+        flex items-center justify-center gap-2 
+        min-w-[50px]
+        px-[12px] py-1.5 rounded-lg
+        cursor-pointer
         ${className}
       `}
     >
-      {logo && (
-        <span className="w-5 h-5 flex items-center justify-center">{logo}</span>
-      )}
-      <span>{text}</span>
+      <div className="flex items-center justify-center gap-2 w-full h-[22px]">
+        {logo && (
+          <span className="flex items-center justify-center h-[20px] w-[30px] ">
+            {logo}
+          </span>
+        )}
+        <span className="whitespace-nowrap font-regular">{text}</span>
+      </div>
     </button>
   );
 };

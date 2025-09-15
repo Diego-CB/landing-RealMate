@@ -1,14 +1,18 @@
+@import "tailwindcss";
+
 @font-face {
-  font-family: "Champagne & Limousines";
-  src: url("/fonts/Champagne & Limousines.eot"); /* For IE9 compatibility */
-  src: url("/fonts/Champagne & Limousines.woff2") format("woff2"),
-    url("/fonts/Champagne & Limousines.woff") format("woff"),
-    url("/fonts/Champagne & Limousines.ttf") format("truetype"),
-    url("/fonts/Champagne & Limousines.svg#Champagne & Limousines")
-      format("svg"),
-    url("/fonts/Champagne & Limousines.eot?#iefix") format("embedded-opentype"); /* For older IE */
-  font-weight: normal;
-  font-style: normal;
+  font-family: gill;
+  src: url("../assets/fonts/nunito/Nunito-Regular.ttf");
+}
+
+@font-face {
+  font-family: champ;
+  src: url("../assets/fonts/Champagne & Limousines.ttf");
+}
+
+@theme {
+  --font-gill: gill, "sans-serif";
+  --font-champ: champ, "sans-serif";
 }
 
 :root {
