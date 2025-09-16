@@ -27,10 +27,10 @@ const Button: React.FC<ButtonProps> = ({
       className={`
         ${colorCombinations[colorCombination]}
         font-gill 
-        flex items-center justify-center gap-2 
+        flex items-center justify-center
         min-w-[50px]
-        px-[12px] py-1.5 rounded-lg
-        cursor-pointer
+        px-[20px] py-[6px] rounded-lg
+        cursor-pointer 
         ${className}
       `}
     >
@@ -40,7 +40,7 @@ const Button: React.FC<ButtonProps> = ({
             {logo}
           </span>
         )}
-        <span className="whitespace-nowrap font-regular">{text}</span>
+        <span className="whitespace-nowrap">{text}</span>
       </div>
     </button>
   );

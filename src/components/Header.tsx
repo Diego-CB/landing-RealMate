@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FiLogIn } from "react-icons/fi";
 import { IoNewspaper } from "react-icons/io5";
 import { FaRegUserCircle } from "react-icons/fa";
@@ -26,7 +26,7 @@ const Header = () => {
         <img
           src={logo}
           alt="Realmate"
-          className="h-[80px] w-auto object-contain"
+          className="h-[70px] w-auto object-contain"
         />
       </button>
 

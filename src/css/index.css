@@ -1,18 +1,56 @@
 @import "tailwindcss";
 
+/* Nunito Regular (400 normal) */
 @font-face {
   font-family: gill;
   src: url("../assets/fonts/nunito/Nunito-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
 }
 
+/* Nunito Regular Italic */
+@font-face {
+  font-family: gill;
+  src: url("../assets/fonts/nunito/Nunito-Italic.ttf");
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Nunito ExtraBold (800 normal) */
+@font-face {
+  font-family: gill;
+  src: url("../assets/fonts/nunito/Nunito-ExtraBold.ttf");
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Nunito ExtraBold Italic */
+@font-face {
+  font-family: gill;
+  src: url("../assets/fonts/nunito/Nunito-ExtraBoldItalic.ttf");
+  font-weight: 800;
+  font-style: italic;
+}
+
+/* Champagne & Limousines Regular */
 @font-face {
   font-family: champ;
   src: url("../assets/fonts/Champagne & Limousines.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Champagne & Limousines Italic */
+@font-face {
+  font-family: champ;
+  src: url("../assets/fonts/Champagne & Limousines Italic.ttf");
+  font-weight: 400;
+  font-style: italic;
 }
 
 @theme {
-  --font-gill: gill, "sans-serif";
-  --font-champ: champ, "sans-serif";
+  --font-gill: gill, sans-serif;
+  --font-champ: champ, sans-serif;
 }
 
 :root {

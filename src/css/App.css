@@ -6,6 +6,7 @@
   --color-tertiary: #bad1e0;
   --color-quaternary: #00000029;
   --color-quinary: #33586a;
+  --color-text-light: #bad1e0;
 }
 
 @layer components {
@@ -16,10 +17,26 @@
   .full-size {
     @apply w-full h-full;
   }
+
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 }
 
 #root {
   margin: 0 auto;
   padding: 0;
   text-align: center;
+  background-color: white;
 }
