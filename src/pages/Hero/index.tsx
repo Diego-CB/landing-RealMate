@@ -56,20 +56,17 @@ const agents = [
 
 const Hero = () => {
   return (
-    <div className="w-full pb-[18vh] overflow-x-hidden">
+    <div className="w-full overflow-x-hidden">
       {/* First Section */}
-      <HeroImage images={heroImages} intervalMs={8000} heroInfo={heroInfo} />
+      <HeroImage images={heroImages} intervalMs={4000} heroInfo={heroInfo} />
 
       {/* Middle Section */}
       <MiddleSection />
 
       {/* Featured Agents */}
-      <FeaturedAgents
-        agents={agents}
-        onContact={(agent) => alert(`Contactar a ${agent.name}`)}
-      />
+      <FeaturedAgents agents={agents} />
 
-      {/* TODO Mobile Downloads */}
+      {/* Mobile Downloads */}
       <DownloadBanner />
     </div>
   );

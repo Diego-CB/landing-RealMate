@@ -1,9 +1,9 @@
-import * as React from "react";
 import dotFilled from "../../../assets/images/Elipse-dark.svg";
 import dotEmpty from "../../../assets/images/Elipse-clear.svg";
 import Button from "../../../components/Button";
 import { ItemsCarousel } from "../../../components/ItemCarrousel/index";
 import itemImg from "../../../assets/images/items/item1.png";
+import { useCallback, useEffect, useState } from "react";
 
 const items = [
   {
@@ -51,27 +51,28 @@ const HeroImage = ({
   className = "",
   heroInfo,
 }: HeroProps) => {
-  const [index, setIndex] = React.useState(0);
-  const [paused, setPaused] = React.useState(false);
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
 
   const total = images.length;
 
-  const goTo = React.useCallback(
+  const goTo = useCallback(
     (i: number) => setIndex(((i % total) + total) % total),
     [total]
   );
 
-  const next = React.useCallback(() => goTo(index + 1), [index, goTo]);
+  const next = useCallback(() => goTo(index + 1), [index, goTo]);
 
   // autoplay
-  React.useEffect(() => {
+  useEffect(() => {
     if (total <= 1 || paused) return;
+
     const id = setInterval(next, intervalMs);
     return () => clearInterval(id);
   }, [next, intervalMs, paused, total]);
 
   // sync externo (por si quieres leer el índice en el padre)
-  React.useEffect(() => {
+  useEffect(() => {
     onIndexChange?.(index);
   }, [index, onIndexChange]);
 
@@ -100,7 +101,7 @@ const HeroImage = ({
       ))}
 
       {/* Contenido overlay */}
-      <div className="absolute inset-0 flex items-start gap-2 flex-col px-[4vw] pt-[5%]">
+      <div className="absolute inset-0 flex items-start gap-2 flex-col px-[4vw] pt-[11%]">
         {/* Text */}
         <div className="w-1/2 text-left font-extrabold text-primary">
           <h1 className="text-9xl">{heroInfo[index].title}</h1>

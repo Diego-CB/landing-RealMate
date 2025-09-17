@@ -57,12 +57,12 @@ const Footer = () => {
       <nav className="md:w-1/3">
         <ul className="space-y-4 py-2 font-gill h-full text-sm tracking-wide text-white">
           <li>
-            <a className="hover:text-white" href="#">
+            <a className="hover:text-white" href="/download">
               PREGUNTAS FRECUENTES
             </a>
           </li>
           <li>
-            <a className="hover:text-white" href="#">
+            <a className="hover:text-white" href="/download">
               DESCARGA LA APLICACIÓN
             </a>
           </li>

@@ -8,15 +8,20 @@ import face from "../assets/images/icons/facebook.svg";
 import playstore from "../assets/images/download/google-play-badge-2.png";
 import appstore from "../assets/images/download/2560px-Download_on_the_App_Store_Badge_ESMX_RGB_blk.svg_.png";
 
-const DownloadBanner = () => {
+type Props = {
+  className?: string;
+  children?: React.ReactNode;
+};
+
+const DownloadBanner = ({ className, children }: Props) => {
   return (
     <div
       style={{ backgroundImage: `url(${banner})` }}
-      className="relative w-full h-[70vh] bg-cover bg-center"
+      className={`relative w-full h-[70vh] bg-no-repeat bg-center bg-fill ${className}`}
     >
       {/* Logo and Social */}
-      <div className="h-full flex flex-col items-center justify-center gap-[2vh]">
-        <img src={logo} className="h-1/2 w-auto" alt="Real Mate" />
+      <div className="absolute w-full h-full flex flex-col items-center justify-center gap-[2vh]">
+        <img src={logo} className="h-[45%] w-auto" alt="Real Mate" />
 
         <div className="flex flex-row gap-[2vh]">
           <a href="#">
@@ -45,6 +50,8 @@ const DownloadBanner = () => {
           <img src={appstore} className="w-[15vw] h-auto" alt="App Store" />
         </a>
       </div>
+
+      {children}
     </div>
   );
 };
