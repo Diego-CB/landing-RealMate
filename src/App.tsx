@@ -3,7 +3,7 @@ import Hero from "./pages/Hero/index";
 import About from "./pages/About";
 import Download from "./pages/Download";
 import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Register from "./pages/Register/index";
 import Sales from "./pages/Sales";
 import "./css/App.css";
 import Header from "./components/Header";

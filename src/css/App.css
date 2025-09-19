@@ -7,6 +7,9 @@
   --color-quaternary: #00000029;
   --color-quinary: #33586a;
   --color-text-light: #bad1e0;
+  --color-login-bg: #324e5c;
+  --color-light-bg: #d3e2eb;
+  --color-text-dark: #324a61;
 }
 
 @layer components {

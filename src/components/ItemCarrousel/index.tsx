@@ -36,15 +36,6 @@ export function ItemsCarousel({ items, className = "" }: ItemsCarouselProps) {
           imageUrl={it.imageUrl}
         />
       ))}
-      {items.map((it) => (
-        <ItemCard
-          key={it.id}
-          title={it.title}
-          location={it.location}
-          price={it.price}
-          imageUrl={it.imageUrl}
-        />
-      ))}
     </div>
   );
 }

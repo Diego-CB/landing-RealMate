@@ -2,8 +2,14 @@ import dotFilled from "../../../assets/images/Elipse-dark.svg";
 import dotEmpty from "../../../assets/images/Elipse-clear.svg";
 import Button from "../../../components/Button";
 import { ItemsCarousel } from "../../../components/ItemCarrousel/index";
-import itemImg from "../../../assets/images/items/item1.png";
 import { useCallback, useEffect, useState } from "react";
+
+import itemImg from "../../../assets/images/items/item1.png";
+import item1 from "../../../assets/images/items/2.jpg";
+import item2 from "../../../assets/images/items/3.jpg";
+import item3 from "../../../assets/images/items/4.jpg";
+import item4 from "../../../assets/images/items/5.jpg";
+import item5 from "../../../assets/images/items/6.jpg";
 
 const items = [
   {
@@ -18,14 +24,28 @@ const items = [
     title: "Apartamento en venta",
     location: "Guatemala, zona 8 Mixco",
     price: "Q1,080,000.00",
-    imageUrl: itemImg,
+    imageUrl: item2,
   },
   {
     id: 3,
-    title: "Terreno en venta",
+    title: "Apartamento en venta",
     location: "Guatemala, Palín",
     price: "Q1,464,000.00",
-    imageUrl: itemImg,
+    imageUrl: item3,
+  },
+  {
+    id: 4,
+    title: "Casa en Venta",
+    location: "Guatemala, Palín",
+    price: "Q1,464,000.00",
+    imageUrl: item4,
+  },
+  {
+    id: 5,
+    title: "Apartamento en venta",
+    location: "Guatemala, Palín",
+    price: "Q1,464,000.00",
+    imageUrl: item5,
   },
 ];
 

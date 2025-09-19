@@ -1,0 +1,15 @@
+<svg id="Foot_menu_-_ICON_-_Linkedin" data-name="Foot menu - ICON - Linkedin" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30.002" height="31.669" viewBox="0 0 30.002 31.669">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectángulo_56" data-name="Rectángulo 56" width="30.002" height="31.668" fill="none"/>
+    </clipPath>
+  </defs>
+  <path id="Trazado_51" data-name="Trazado 51" d="M1.667,1.667H28.335V28.335H1.667ZM0,31.669H30V0H0Z" fill="#fff"/>
+  <g id="Grupo_109" data-name="Grupo 109" transform="translate(0 0)">
+    <g id="Grupo_108" data-name="Grupo 108" clip-path="url(#clip-path)">
+      <path id="Trazado_52" data-name="Trazado 52" d="M10.1,7.94A2.152,2.152,0,1,1,7.945,5.788,2.153,2.153,0,0,1,10.1,7.94" transform="translate(-0.865 -0.864)" fill="#fff"/>
+      <path id="Trazado_53" data-name="Trazado 53" d="M13.714,12.68c4.327-1.2,3.89,1.428,4.187,1.653.277.21,2.426-2.925,6.45-1.033,4.282,2.013,2.265,9.635,2.7,13.552H22.877c1.675-14.306-6.667-14.3-4.991,0l-4.171,0Z" transform="translate(-2.047 -1.846)" fill="#fff"/>
+      <rect id="Rectángulo_55" data-name="Rectángulo 55" width="4.167" height="14.167" transform="translate(5.001 10.833)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

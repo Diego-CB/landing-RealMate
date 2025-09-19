@@ -1,4 +1,5 @@
 import banner from "../assets/images/banner-download.png";
+import bannerFull from "../assets/images/banner-download-big.png";
 import logo from "../assets/images/logos/logo-download.png";
 
 import insta from "../assets/images/icons/insta.svg";
@@ -11,13 +12,21 @@ import appstore from "../assets/images/download/2560px-Download_on_the_App_Store
 type Props = {
   className?: string;
   children?: React.ReactNode;
+  fullpage?: boolean;
 };
 
-const DownloadBanner = ({ className, children }: Props) => {
+const DownloadBanner = ({ className, children, fullpage = false }: Props) => {
+  const bannerUri = fullpage ? bannerFull : banner;
+  const bannerAR = fullpage ? 1950 / 947 : 1950 / 644;
+  const bannerHeight = 100 / bannerAR;
+
   return (
     <div
-      style={{ backgroundImage: `url(${banner})` }}
-      className={`relative w-full h-[70vh] bg-no-repeat bg-center bg-fill ${className}`}
+      style={{
+        backgroundImage: `url(${bannerUri})`,
+        height: `${bannerHeight}vw`,
+      }}
+      className={`relative w-full bg-no-repeat bg-center max-h-[100vh] bg-fill ${className}`}
     >
       {/* Logo and Social */}
       <div className="absolute w-full h-full flex flex-col items-center justify-center gap-[2vh]">

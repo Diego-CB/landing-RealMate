@@ -22,7 +22,6 @@ const heroInfo = [
 import hero1 from "../../assets/images/hero/hero-1.png";
 import hero2 from "../../assets/images/hero/hero-2.png";
 import hero3 from "../../assets/images/hero/hero-3.png";
-import building from "../../assets/images/hero/building-vertical.png";
 import HeroImage from "./components/HeroImage";
 import FeaturedAgents from "./components/FeaturedAgents";
 
