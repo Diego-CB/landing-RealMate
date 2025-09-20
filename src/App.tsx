@@ -8,6 +8,7 @@ import Sales from "./pages/Sales";
 import "./css/App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import FrequentQuestions from "./pages/FrequentQuestions.tsx";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/sales" element={<Sales />} />
+        <Route path="/frequentquestions" element={<FrequentQuestions />} />
       </Routes>
 
       <Footer />

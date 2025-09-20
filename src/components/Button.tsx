@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 type ButtonProps = {
   text: string;
@@ -6,6 +7,7 @@ type ButtonProps = {
   onClick?: () => void;
   className?: string;
   colorCombination?: "primary" | "secondary";
+  href?: string;
 };
 
 const colorCombinations = {
@@ -20,10 +22,18 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   className = "",
   colorCombination = "primary",
+  href,
 }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (href) return navigate(href);
+    if (onClick) return onClick();
+  };
+
   return (
     <button
-      onClick={onClick}
+      onClick={handleClick}
       className={`
         ${colorCombinations[colorCombination]}
         font-gill 

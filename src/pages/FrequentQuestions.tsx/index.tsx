@@ -2,9 +2,8 @@ import building from "../../assets/images/register/building-register.png";
 import Button from "../../components/Button";
 import DropDownCard from "../../components/DropDownCard";
 import TextPart from "../../components/TextPart";
-import Table from "./components/Table";
 
-const Register = () => {
+const FrequentQuestions = () => {
   return (
     <section className="w-full py-15 flex flex-row overflow-hidden">
       {/* Imagen */}
@@ -66,34 +65,10 @@ const Register = () => {
               ]}
             />
           </DropDownCard>
-          <DropDownCard text="¿SOY AGENTE INMOBILIARIO?">
-            <TextPart
-              title="¿Cómo puedo unirme a Realmate?"
-              text="Regístrate en la sección de agentes y completa el formulario de solicitud. Nuestro equipo revisará tu perfil y, si cumples con los requisitos, te contactará para activar tu cuenta como asesor."
-            />
-
-            <TextPart
-              title="Beneficios para agentes:"
-              list={[
-                "Acceso a una red de propietarios y compradores calificados",
-                "Herramientas para gestionar propiedades y clientes desde un solo lugar",
-                "Posibilidad de aumentar tus ingresos con cada cierre",
-                "Capacitación y soporte continuo",
-                "Mayor visibilidad como profesional inmobiliario",
-              ]}
-            />
-          </DropDownCard>
-          <DropDownCard text="CONOCE NUESTROS PRECIOS">
-            <TextPart
-              title="QUIERO SER PARTE DE REALMATE:"
-              text="Ofrecemos planex flexibles según tus necesidades. A continuación puedes leer un breve resumen de nuestros precios pero recomendamos descargar nuestra app o consultar a nuestro correo cualquier duda con los precios."
-            />
-
-            <Table />
-          </DropDownCard>
         </div>
       </div>
     </section>
   );
 };
-export default Register;
+
+export default FrequentQuestions;

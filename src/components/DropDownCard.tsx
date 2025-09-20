@@ -1,6 +1,6 @@
 import type React from "react";
-import arrowDown from "../../../assets/images/icons/arrow-down.svg";
-import arrowUp from "../../../assets/images/icons/arrow-up.svg";
+import arrowDown from "../assets/images/icons/arrow-down.svg";
+import arrowUp from "../assets/images/icons/arrow-up.svg";
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -16,14 +16,11 @@ const DropDownCard = ({ text, children }: Props) => {
     () => (showContent ? arrowUp : arrowDown),
     [showContent]
   );
-  const btnColor = useMemo(
-    () => (showContent ? "secundary" : "text-light"),
-    [showContent]
-  );
-  const textColor = useMemo(
-    () => (showContent ? "white" : "primary"),
-    [showContent]
-  );
+
+  const getColors = () => {
+    if (showContent) return "bg-secundary text-white";
+    return "bg-tertiary text-primary";
+  };
 
   return (
     <div className="w-[80%] z-0">
@@ -32,19 +29,13 @@ const DropDownCard = ({ text, children }: Props) => {
         aria-expanded={showContent}
         className={`
           w-full flex justify-between items-center
-          bg-${btnColor} px-5 py-2 rounded-xl text-${textColor} cursor-pointer
+           ${getColors()} px-5 py-2 rounded-xl cursor-pointer
           transition z-20
         `}
       >
         {text}
 
-        {/* Rotate arrow */}
-        <motion.img
-          src={arrowIcon}
-          alt="arrow"
-          className="w-5 h-5"
-          transition={{ duration: 0.25, ease: "easeInOut" }}
-        />
+        <img src={arrowIcon} alt="arrow" className="w-5 h-5" />
       </button>
 
       {/* Animated content */}
