@@ -2,10 +2,9 @@ import dotFilled from "../../../assets/images/Elipse-dark.svg";
 import dotEmpty from "../../../assets/images/Elipse-clear.svg";
 import Button from "../../../components/Button";
 import { ItemsCarousel } from "../../../components/ItemCarrousel/index";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import itemImg from "../../../assets/images/items/item1.png";
-import item1 from "../../../assets/images/items/2.jpg";
+import item1 from "../../../assets/images/items/item1.png";
 import item2 from "../../../assets/images/items/3.jpg";
 import item3 from "../../../assets/images/items/4.jpg";
 import item4 from "../../../assets/images/items/5.jpg";
@@ -17,7 +16,7 @@ const items = [
     title: "Casa con piscina en venta",
     location: "Guatemala, La Foresta zona 16",
     price: "Q3,264,000.00",
-    imageUrl: itemImg,
+    imageUrl: item1,
   },
   {
     id: 2,
