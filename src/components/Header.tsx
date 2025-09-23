@@ -26,7 +26,7 @@ const Header = () => {
         <img
           src={logo}
           alt="Realmate"
-          className="h-[70px] w-auto object-contain"
+          className="h-[55px] w-auto object-contain"
         />
       </button>
 

@@ -7,9 +7,11 @@ import { AnimatePresence, motion } from "framer-motion";
 type Props = {
   text: string;
   children?: React.ReactNode;
+  className?: string;
+  btnClassName?: string;
 };
 
-const DropDownCard = ({ text, children }: Props) => {
+const DropDownCard = ({ text, children, className, btnClassName }: Props) => {
   const [showContent, setShowContent] = useState(false);
 
   const arrowIcon = useMemo(
@@ -23,14 +25,15 @@ const DropDownCard = ({ text, children }: Props) => {
   };
 
   return (
-    <div className="w-[80%] z-0">
+    <div className={`w-[80%] z-0 ${className}`}>
       <button
         onClick={() => setShowContent((prev) => !prev)}
         aria-expanded={showContent}
         className={`
           w-full flex justify-between items-center
-           ${getColors()} px-5 py-2 rounded-xl cursor-pointer
+          ${getColors()} px-5 py-2 rounded-xl cursor-pointer
           transition z-20
+          ${btnClassName}
         `}
       >
         {text}

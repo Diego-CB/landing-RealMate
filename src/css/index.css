@@ -16,6 +16,14 @@
   font-style: italic;
 }
 
+/* Nunito Regular Italic */
+@font-face {
+  font-family: gill;
+  src: url("../assets/fonts/nunito/Nunito-Bold.ttf");
+  font-weight: 600;
+  font-style: bold;
+}
+
 /* Nunito ExtraBold (800 normal) */
 @font-face {
   font-family: gill;
