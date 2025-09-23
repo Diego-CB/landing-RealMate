@@ -2,7 +2,7 @@ import dotFilled from "../../../assets/images/Elipse-dark.svg";
 import dotEmpty from "../../../assets/images/Elipse-clear.svg";
 import Button from "../../../components/Button";
 import { ItemsCarousel } from "../../../components/ItemCarrousel/index";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import itemImg from "../../../assets/images/items/item1.png";
 import item1 from "../../../assets/images/items/2.jpg";
@@ -66,37 +66,39 @@ type HeroProps = {
 
 const HeroImage = ({
   images,
-  intervalMs = 10000,
-  onIndexChange,
+  intervalMs = 4000,
   className = "",
   heroInfo,
 }: HeroProps) => {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const timerRef = useRef<number | null>(null);
 
   const total = images.length;
+  if (total === 0) return null;
 
-  const goTo = useCallback(
-    (i: number) => setIndex(((i % total) + total) % total),
-    [total]
-  );
+  const clearTimer = () => {
+    console.warn("cleared");
+    if (timerRef.current != null) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+  };
 
-  const next = useCallback(() => goTo(index + 1), [index, goTo]);
-
-  // autoplay
-  useEffect(() => {
+  const scheduleNext = () => {
     if (total <= 1 || paused) return;
 
-    const id = setInterval(next, intervalMs);
-    return () => clearInterval(id);
-  }, [next, intervalMs, paused, total]);
+    clearTimer();
+    timerRef.current = window.setTimeout(
+      () => setIndex((prev) => (prev + 1) % total),
+      intervalMs
+    );
+  };
 
-  // sync externo (por si quieres leer el índice en el padre)
   useEffect(() => {
-    onIndexChange?.(index);
-  }, [index, onIndexChange]);
-
-  if (total === 0) return null;
+    scheduleNext();
+    return clearTimer;
+  }, [index, paused, intervalMs, total]);
 
   return (
     <section
@@ -131,7 +133,11 @@ const HeroImage = ({
             {heroInfo[index].info}
           </p>
 
-          <Button text={heroInfo[index].btnText} className="mt-2 " />
+          <Button
+            href={index === 0 ? "/about" : "/login"}
+            text={heroInfo[index].btnText}
+            className="mt-2 "
+          />
         </div>
 
         {/* Dots */}

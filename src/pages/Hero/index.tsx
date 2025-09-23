@@ -57,7 +57,7 @@ const Hero = () => {
   return (
     <div className="w-full overflow-x-hidden">
       {/* First Section */}
-      <HeroImage images={heroImages} intervalMs={4000} heroInfo={heroInfo} />
+      <HeroImage images={heroImages} heroInfo={heroInfo} />
 
       {/* Middle Section */}
       <MiddleSection />
