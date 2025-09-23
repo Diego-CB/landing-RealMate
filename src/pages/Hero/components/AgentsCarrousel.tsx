@@ -141,7 +141,12 @@ const AgentsCarrousel: React.FC<Props> = ({ agents }) => {
             {agents[active].role}
           </p>
 
-          <Button className="text-lg" text="Contactar" logo={<UserPlus />} />
+          <Button
+            href="/login"
+            className="text-lg"
+            text="Contactar"
+            logo={<UserPlus />}
+          />
         </div>
 
         <button
