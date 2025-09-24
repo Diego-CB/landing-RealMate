@@ -1,7 +1,9 @@
+import img360 from "../../../assets/images/360.png";
+
 const Photo360 = () => {
   return (
-    <div className="bg-red-500 screen-w-heather">
-      <img src="" alt="" />
+    <div className="screen-w-heather">
+      <img src={img360} alt="" className="h-full w-full" />
     </div>
   );
 };

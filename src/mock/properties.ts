@@ -1,8 +1,8 @@
-import item1 from "../../assets/images/items/item1.png";
-import item2 from "../../assets/images/items/3.jpg";
-import item3 from "../../assets/images/items/4.jpg";
-import item4 from "../../assets/images/items/5.jpg";
-import item5 from "../../assets/images/items/6.jpg";
+import item1 from "../assets/images/items/item1.png";
+import item2 from "../assets/images/items/3.jpg";
+import item3 from "../assets/images/items/4.jpg";
+import item4 from "../assets/images/items/5.jpg";
+import item5 from "../assets/images/items/6.jpg";
 
 export const items = [
   {

@@ -1,8 +1,8 @@
-import a1 from "../../assets/images/hero/agents/a1.png";
-import a2 from "../../assets/images/hero/agents/a2.png";
-import a3 from "../../assets/images/hero/agents/a3.png";
-import a4 from "../../assets/images/hero/agents/a4.png";
-import a5 from "../../assets/images/hero/agents/a5.png";
+import a1 from "../assets/images/hero/agents/a1.png";
+import a2 from "../assets/images/hero/agents/a2.png";
+import a3 from "../assets/images/hero/agents/a3.png";
+import a4 from "../assets/images/hero/agents/a4.png";
+import a5 from "../assets/images/hero/agents/a5.png";
 
 export const agents = [
   {
