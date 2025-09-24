@@ -4,7 +4,7 @@ import About from "./pages/About";
 import Download from "./pages/Download";
 import Login from "./pages/Login";
 import Register from "./pages/Register/index";
-import Sales from "./pages/Sales";
+import Sales from "./pages/Sales/index.tsx";
 import "./css/App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";

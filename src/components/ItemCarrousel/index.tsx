@@ -21,10 +21,10 @@ export function ItemsCarousel({ items, className = "" }: ItemsCarouselProps) {
     <div
       ref={scrollerRef}
       className={`
-        ${className}
         overflow-scroll w-2/3
         no-scrollbar
         flex snap-x gap-6 overflow-x-auto scroll-px-6 px-6 py-4
+        ${className}
       `}
     >
       {items.map((it) => (
