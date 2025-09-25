@@ -1,6 +1,6 @@
 import { ItemsCarousel } from "../../components/ItemCarrousel";
 import { items } from "../../mock/properties";
-import Photo360 from "./components/photo360";
+import Photo360 from "./components/Photo360";
 import SalesSection from "./components/SalesSection";
 
 const Sales = () => {
