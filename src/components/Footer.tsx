@@ -76,14 +76,14 @@ const Footer = () => {
         />
 
         <div className="flex items-center gap-3">
-          <a href="">
+          <a href="https://www.instagram.com/innovaviviendoconstruccion/">
             <img src={insta} alt="Instagram" className="h-10 w-10" />
           </a>
           <a href="">
-            <img src={face} alt="Instagram" className="h-10 w-10" />
+            <img src={face} alt="Facebook" className="h-10 w-10" />
           </a>
           <a href="">
-            <img src={linkedin} alt="Instagram" className="h-10 w-10" />
+            <img src={linkedin} alt="Linkedin" className="h-10 w-10" />
           </a>
         </div>
       </div>
