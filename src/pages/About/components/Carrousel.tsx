@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 
 import arrowL from "../../../assets/images/icons/arrow-left.svg";

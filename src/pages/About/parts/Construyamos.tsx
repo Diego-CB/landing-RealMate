@@ -41,10 +41,10 @@ const Construyamos: React.FC = () => {
               <Button
                 className="text-sm bg-text-light rounded-[20%]"
                 icon={mail}
-                text="innovaviviebdicibstruccion@gmail.com"
+                text="innovaviviendoconstruccion@gmail.com"
                 onClick={() =>
                   navigateTo(
-                    "mailto:innovaviviebdicibstruccion@gmail.com?subject=&body="
+                    "mailto:innovaviviendoconstruccion@gmail.com?subject=&body="
                   )
                 }
               />
