@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Hero from "./pages/Hero/index";
-import About from "./pages/About";
+import About from "./pages/About/index.tsx";
 import Download from "./pages/Download";
 import Login from "./pages/Login";
 import Register from "./pages/Register/index";
@@ -9,6 +9,7 @@ import "./css/App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FrequentQuestions from "./pages/FrequentQuestions.tsx";
+import Innova from "./pages/About/Innova.tsx";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/sales" element={<Sales />} />
         <Route path="/frequentquestions" element={<FrequentQuestions />} />
+        <Route path="/innova" element={<Innova />} />
       </Routes>
 
       <Footer />

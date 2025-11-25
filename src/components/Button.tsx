@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 type ButtonProps = {
   text: string;
   logo?: React.ReactNode; // Aquí puedes pasar un ícono o imagen
+  icon?: React.ImgHTMLAttributes<HTMLImageElement>["src"];
   onClick?: () => void;
   className?: string;
   colorCombination?: "primary" | "secondary";
@@ -23,6 +24,7 @@ const Button: React.FC<ButtonProps> = ({
   className = "",
   colorCombination = "primary",
   href,
+  icon,
 }) => {
   const navigate = useNavigate();
 
@@ -49,6 +51,13 @@ const Button: React.FC<ButtonProps> = ({
           <span className="flex items-center justify-center h-[20px] w-[30px] ">
             {logo}
           </span>
+        )}
+
+        {icon && (
+          <img
+            src={icon}
+            className="flex items-center justify-center h-[20px] w-[30px] "
+          />
         )}
         <span className="whitespace-nowrap">{text}</span>
       </div>

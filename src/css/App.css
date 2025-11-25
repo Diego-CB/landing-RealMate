@@ -47,3 +47,8 @@
   text-align: center;
   background-color: white;
 }
+
+html,
+body {
+  overflow-x: hidden;
+}
