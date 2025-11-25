@@ -17,7 +17,7 @@ type Props = {
 
 const DownloadBanner = ({ className, children, fullpage = false }: Props) => {
   const bannerUri = fullpage ? bannerFull : banner;
-  const bannerAR = fullpage ? 1950 / 947 : 1950 / 644;
+  const bannerAR = fullpage ? 1755 / 579 : 1278 / 620;
   const bannerHeight = 100 / bannerAR;
 
   return (
@@ -26,7 +26,7 @@ const DownloadBanner = ({ className, children, fullpage = false }: Props) => {
         backgroundImage: `url(${bannerUri})`,
         height: `${bannerHeight}vw`,
       }}
-      className={`relative w-full bg-no-repeat bg-center max-h-[100vh] bg-fill ${className}`}
+      className={`relative w-[110vw] left-[-2%] bg-no-repeat bg-cover bg-center max-h-[100vh] ${className}`}
     >
       {/* Logo and Social */}
       <div className="absolute w-full h-full flex flex-col items-center justify-center gap-[2vh]">
