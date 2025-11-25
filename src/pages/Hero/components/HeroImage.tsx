@@ -35,7 +35,6 @@ const HeroImage = ({
   if (total === 0) return null;
 
   const clearTimer = () => {
-    console.warn("cleared");
     if (timerRef.current != null) {
       clearTimeout(timerRef.current);
       timerRef.current = null;
@@ -114,6 +113,7 @@ const HeroImage = ({
       </div>
 
       <ItemsCarousel
+        animated
         items={[...items, ...items]}
         className="relative left-[35%] pr-[38%] top-[60vh]"
       />

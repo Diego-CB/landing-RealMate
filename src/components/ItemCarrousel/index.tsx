@@ -1,6 +1,6 @@
-import { useRef, useState, useLayoutEffect } from "react";
+import { useRef, useState, useLayoutEffect, useEffect } from "react";
 import { ItemCard } from "./ItemCard";
-import { motion, useMotionValue } from "framer-motion";
+import { motion, useMotionValue, animate } from "framer-motion";
 
 type Item = {
   id: string | number;
@@ -13,9 +13,14 @@ type Item = {
 type ItemsCarouselProps = {
   items: Item[];
   className?: string;
+  animated?: boolean;
 };
 
-export function ItemsCarousel({ items, className = "" }: ItemsCarouselProps) {
+export function ItemsCarousel({
+  items,
+  className = "",
+  animated = false,
+}: ItemsCarouselProps) {
   const [dragging, setDragging] = useState(false);
 
   const dragX = useMotionValue(0);
@@ -31,11 +36,11 @@ export function ItemsCarousel({ items, className = "" }: ItemsCarouselProps) {
     const calc = () => {
       const scrollWidth = el.scrollWidth; // total content width
       const clientWidth = el.clientWidth; // visible width
-      const maxDrag = scrollWidth - clientWidth;
+      const maxDrag = Math.max(0, scrollWidth - clientWidth);
 
       setConstraints({
-        left: -maxDrag, // allow dragging left to reveal right side
-        right: 0,
+        left: -maxDrag, // end position
+        right: 0, // start position
       });
     };
 
@@ -44,10 +49,46 @@ export function ItemsCarousel({ items, className = "" }: ItemsCarouselProps) {
     return () => window.removeEventListener("resize", calc);
   }, [items]);
 
+  // ---- Idle autopan: to end, then back ----
+  useEffect(() => {
+    if (!animated) return;
+    if (dragging) return; // don't autoplay while dragging
+    if (constraints.left === 0) return; // nowhere to pan
+
+    const timeoutId = window.setTimeout(() => {
+      const start = dragX.get();
+      const end = constraints.left; // negative value
+
+      // if already at end/start, still do the full trip
+      const SPEED_PX_PER_SEC = 120; // <- your "speed" knob
+
+      const back = 0;
+
+      const distToEnd = Math.abs(end - start);
+      const distBack = Math.abs(back - end);
+      const totalDist = distToEnd + distBack;
+
+      const totalDuration = totalDist / SPEED_PX_PER_SEC;
+
+      // weight keyframe times by distance so speed stays constant
+      const t1 = distToEnd / totalDist; // % of time to reach end
+
+      const controls = animate(dragX, [start, end, back], {
+        duration: totalDuration,
+        ease: "linear", // linear = constant speed
+        times: [0, t1, 1],
+      });
+
+      return () => controls.stop();
+    }, 1500);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [constraints.left, dragging, dragX]);
+
   return (
     <motion.div
       ref={containerRef}
-      style={{ x: dragX }}
+      style={{ x: dragX, touchAction: "pan-y" }}
       drag="x"
       dragConstraints={constraints}
       dragElastic={0.08}
@@ -55,6 +96,15 @@ export function ItemsCarousel({ items, className = "" }: ItemsCarouselProps) {
       onDragStart={() => setDragging(true)}
       onDragEnd={() => setDragging(false)}
       whileTap={{ cursor: "grabbing" }}
+      dragTransition={{
+        bounceStiffness: 300,
+        bounceDamping: 30,
+        power: 0.1,
+        timeConstant: 100,
+      }}
+      onScroll={(e) => {
+        console.warn(e);
+      }}
       className={`
         overflow-visible
         no-scrollbar
@@ -64,9 +114,9 @@ export function ItemsCarousel({ items, className = "" }: ItemsCarouselProps) {
         ${className}
       `}
     >
-      {items.map((it) => (
+      {items.map((it, index) => (
         <ItemCard
-          key={it.id}
+          key={it.id + index.toString()}
           title={it.title}
           location={it.location}
           price={it.price}
