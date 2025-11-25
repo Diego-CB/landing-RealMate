@@ -10,6 +10,7 @@ type HeroInfoTyp = {
   subtTitle: string;
   info: string;
   btnText: string;
+  href: string;
 };
 
 type HeroProps = {
@@ -90,7 +91,7 @@ const HeroImage = ({
           </p>
 
           <Button
-            href={index === 0 ? "/about" : "/login"}
+            href={heroInfo[index].href}
             text={heroInfo[index].btnText}
             className="mt-2 "
           />

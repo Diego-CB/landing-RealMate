@@ -5,6 +5,7 @@ type Props = {
   subtitle: string;
   children: string;
   className?: string;
+  innova?: boolean;
 };
 
 const SalesSection: React.FC<Props> = ({
@@ -12,6 +13,7 @@ const SalesSection: React.FC<Props> = ({
   subtitle,
   children,
   className,
+  innova = false,
 }) => {
   return (
     <div className={`flex flex-row ${className}`}>
@@ -21,12 +23,20 @@ const SalesSection: React.FC<Props> = ({
         <p className="text-secundary text-2xl">{children}</p>
       </div>
 
-      <div className="w-[35%] py-5 flex justify-center items-start">
+      <div className="w-[35%] py-5 flex flex-col justify-center items-start gap-3">
         <Button
           href="/login"
           text="Se parte de Realmate"
           className="w-[55%] px-10 h-11 text-xl"
         />
+
+        {innova && (
+          <Button
+            href="/innova"
+            text="Contactar Constructora"
+            className="w-[55%] px-10 h-11 text-xl bg-tertiary"
+          />
+        )}
       </div>
     </div>
   );

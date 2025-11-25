@@ -9,7 +9,7 @@ const Sales = () => {
       <Photo360 />
 
       <div className="py-[10vh]">
-        <SalesSection title="COMPRAR" subtitle="CON CONFIANZA">
+        <SalesSection title="COMPRAR" subtitle="CON CONFIANZA" innova>
           Compra inmuebles en Guatemala de forma fácil y segura desde nuestra
           app. Accede a una amplia selección de propiedades y recibe asesoría
           personalizada de los mejores agentes inmobiliarios del país. Todo el
