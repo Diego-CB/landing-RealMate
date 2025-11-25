@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 
 import arrowL from "../../../assets/images/icons/arrow-left.svg";
@@ -20,60 +20,55 @@ type ProjectCarouselProps = {
   className?: string;
 };
 
-const DRAG_BUFFER = 50;
-
 const ProjectCarousel = ({ data, className = "" }: ProjectCarouselProps) => {
   const [_, setDragging] = useState<boolean>(false);
-  const [index, setIndex] = useState(0);
   const [dataIndex, setDataIndex] = useState(0);
 
   const goData = (dir: number) => {
     setDataIndex((i) => {
-      if (i + dir > data.length - 1) {
-        return 0;
-      }
-
-      if (i + dir < 0) {
-        return data.length - 1;
-      }
-
+      if (i + dir > data.length - 1) return 0;
+      if (i + dir < 0) return data.length - 1;
       return i + dir;
     });
   };
 
-  const count = data[dataIndex].images.length;
   const dragX = useMotionValue(0);
 
-  console.log(dataIndex);
+  const contentRef = useRef<HTMLDivElement>(null);
 
+  const [constraints, setConstraints] = useState({ left: 0, right: 0 });
+
+  useLayoutEffect(() => {
+    const contentEl = contentRef.current;
+    if (!contentEl) return;
+
+    const calc = () => {
+      const contentW = contentEl.scrollWidth; // total images width
+      const maxDrag = Math.max(0, contentW);
+
+      setConstraints({
+        left: -maxDrag,
+        right: 0,
+      });
+
+      // clamp current x if it is out of bounds after resize / data change
+      const current = dragX.get();
+      if (current < -maxDrag) dragX.set(-maxDrag);
+      if (current > 0) dragX.set(0);
+    };
+
+    calc();
+    window.addEventListener("resize", calc);
+    return () => window.removeEventListener("resize", calc);
+  }, [dataIndex, dragX]);
+
+  // reset position when switching project
   useEffect(() => {
-    setIndex(Math.floor(data[dataIndex].images.length / 2) - 1);
-  }, [data[dataIndex].images]);
-
-  const clampIndex = (i: number) => (i + count) % count;
-  const go = (dir: number) => {
-    setIndex((i) => {
-      if (i + dir > data[dataIndex].images.length - 2 || i + dir < 0) {
-        return i;
-      }
-
-      return clampIndex(i + dir);
-    });
-  };
+    dragX.set(0);
+  }, [dataIndex, dragX]);
 
   const onDragStart = () => setDragging(true);
-  const onDragEnd = () => {
-    setDragging(false);
-
-    const x = dragX.get();
-    if (x <= -DRAG_BUFFER) {
-      go(1);
-    } else if (x >= DRAG_BUFFER) {
-      go(-1);
-    }
-  };
-
-  if (count === 0) return null;
+  const onDragEnd = () => setDragging(false);
 
   return (
     <div className={`w-full h-[110vh] ${className}`}>
@@ -108,20 +103,23 @@ const ProjectCarousel = ({ data, className = "" }: ProjectCarouselProps) => {
         )}
       </div>
 
+      {/* Carousel viewport */}
       {/* Carousel rail */}
       <motion.div
-        className="cursor-grab h-[80vh] w-full flex flex-row gap-[2%]"
-        animate={{
-          translateX: `-${index * 36}vw`,
-        }}
+        ref={contentRef}
+        className="cursor-grab w-fit h-[80vh] flex flex-row gap-[2%]"
         style={{ x: dragX }}
         drag="x"
-        dragConstraints={{ left: 0, right: 0 }}
+        dragConstraints={constraints}
+        dragElastic={0.08}
+        dragMomentum
         onDragStart={onDragStart}
         onDragEnd={onDragEnd}
+        whileTap={{ cursor: "grabbing" }}
       >
-        {data[dataIndex].images.map(({ src }) => (
+        {data[dataIndex].images.map(({ src }, idx) => (
           <img
+            key={`${src}-${idx}`}
             src={src}
             alt=""
             className="h-full w-[30vw] object-cover rounded-4xl"
