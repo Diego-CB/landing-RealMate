@@ -1,5 +1,6 @@
-import * as React from "react";
+import { useRef, useState, useLayoutEffect } from "react";
 import { ItemCard } from "./ItemCard";
+import { motion, useMotionValue } from "framer-motion";
 
 type Item = {
   id: string | number;
@@ -15,15 +16,51 @@ type ItemsCarouselProps = {
 };
 
 export function ItemsCarousel({ items, className = "" }: ItemsCarouselProps) {
-  const scrollerRef = React.useRef<HTMLDivElement>(null);
+  const [dragging, setDragging] = useState(false);
+
+  const dragX = useMotionValue(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // computed constraints
+  const [constraints, setConstraints] = useState({ left: 0, right: 0 });
+
+  useLayoutEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const calc = () => {
+      const scrollWidth = el.scrollWidth; // total content width
+      const clientWidth = el.clientWidth; // visible width
+      const maxDrag = scrollWidth - clientWidth;
+
+      setConstraints({
+        left: -maxDrag, // allow dragging left to reveal right side
+        right: 0,
+      });
+    };
+
+    calc();
+    window.addEventListener("resize", calc);
+    return () => window.removeEventListener("resize", calc);
+  }, [items]);
 
   return (
-    <div
-      ref={scrollerRef}
+    <motion.div
+      ref={containerRef}
+      style={{ x: dragX }}
+      drag="x"
+      dragConstraints={constraints}
+      dragElastic={0.08}
+      dragMomentum={true}
+      onDragStart={() => setDragging(true)}
+      onDragEnd={() => setDragging(false)}
+      whileTap={{ cursor: "grabbing" }}
       className={`
-        overflow-scroll w-2/3
+        overflow-visible
         no-scrollbar
-        flex snap-x gap-6 overflow-x-auto scroll-px-6 px-6 py-4
+        cursor-grab
+        flex gap-6 px-6 py-4
+        ${dragging ? "select-none" : ""}
         ${className}
       `}
     >
@@ -36,6 +73,6 @@ export function ItemsCarousel({ items, className = "" }: ItemsCarouselProps) {
           imageUrl={it.imageUrl}
         />
       ))}
-    </div>
+    </motion.div>
   );
 }

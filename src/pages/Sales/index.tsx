@@ -16,7 +16,7 @@ const Sales = () => {
           proceso, desde la búsqueda hasta la compra, en un solo lugar.
         </SalesSection>
 
-        <ItemsCarousel items={items} className="w-full pl-15" />
+        <ItemsCarousel items={[...items, ...items]} className="px-15" />
       </div>
 
       <div className="py-[10vh]">
@@ -27,7 +27,7 @@ const Sales = () => {
           ágil, clara y sin complicaciones.
         </SalesSection>
 
-        <ItemsCarousel items={items} className="w-full pl-15" />
+        <ItemsCarousel items={[...items, ...items]} className="px-15" />
       </div>
     </div>
   );

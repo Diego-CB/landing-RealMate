@@ -114,8 +114,8 @@ const HeroImage = ({
       </div>
 
       <ItemsCarousel
-        items={items}
-        className="absolute bottom-[-100px] right-0"
+        items={[...items, ...items]}
+        className="relative left-[35%] pr-[38%] top-[60vh]"
       />
     </section>
   );

@@ -42,6 +42,7 @@ export function ItemCard({
           className="h-[220px] w-full object-cover"
           src={imageUrl}
           alt={title}
+          draggable={false}
         />
 
         {/* Like button */}
@@ -54,11 +55,13 @@ export function ItemCard({
             bg-white hover:scale-102 transition
             cursor-pointer
           `}
+          draggable={false}
         >
           <img
             className="h-5 w-5"
             src={liked ? heartFilled : heartUnfilled}
             alt="like"
+            draggable={false}
           />
         </button>
       </div>
