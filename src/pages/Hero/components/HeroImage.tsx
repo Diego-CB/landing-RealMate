@@ -83,8 +83,7 @@ const HeroImage = ({
         {/* Text */}
         <div className="w-1/2 text-left font-extrabold text-primary">
           <h1 className="text-9xl">{heroInfo[index].title}</h1>
-          <h2 className="text-6xl">{heroInfo[index].subtTitle}</h2>
-
+          <h2 className="text-4xl">{heroInfo[index].subtTitle}</h2>
           <p className="w-2/3 py-2 text-primary text-left text-2xl">
             {heroInfo[index].info}
           </p>

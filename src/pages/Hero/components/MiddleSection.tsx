@@ -10,11 +10,12 @@ const MiddleSection = () => {
       <div
         className={`
           w-2/3 h-full gap-[3%] pb-[8%]
-          flex flex-col items-center justify-end
+          flex flex-col items-center justify-center
+          pt-[20vh]
           text-secundary font-champ text-left
         `}
       >
-        <h1 className="text-7xl italic font-extralight px-[10%]">
+        <h1 className="text-[7vh] italic font-extralight px-[8%]">
           "Realmate: Tecnología, Confianza y Resultados Inmobiliarios"
         </h1>
 

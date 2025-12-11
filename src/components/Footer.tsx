@@ -7,8 +7,10 @@ import map from "../assets/images/icons/location-stroke.svg";
 import phone from "../assets/images/icons/phone-stroke.svg";
 import mail from "../assets/images/icons/mail-stroke.svg";
 import linkedinStroke from "../assets/images/icons/linkedin-stroke.svg";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <footer
       className={`
@@ -45,24 +47,37 @@ const Footer = () => {
       <nav className="md:w-1/3">
         <ul className="space-y-4 py-2 font-gill h-full text-sm tracking-wide text-white">
           <li>
-            <a href="/innova" className="hover:text-white cursor-pointer">
+            {/* <a href="/innova" className="hover:text-white cursor-pointer"> */}
+            <button
+              onClick={() => navigate("/innova")}
+              className="hover:text-white cursor-pointer"
+            >
               CONSTRUYE CON INNOVA
-            </a>
+            </button>
           </li>
           <li>
-            <a className="hover:text-white" href="/frequentquestions">
+            <button
+              onClick={() => navigate("/frequentquestions")}
+              className="hover:text-white cursor-pointer"
+            >
               PREGUNTAS FRECUENTES
-            </a>
+            </button>
           </li>
           <li>
-            <a className="hover:text-white" href="/download">
+            <button
+              onClick={() => navigate("/download")}
+              className="hover:text-white cursor-pointer"
+            >
               DESCARGA LA APLICACIÓN
-            </a>
+            </button>
           </li>
           <li>
-            <a className="hover:text-white" href="#">
+            <button
+              onClick={() => navigate("/")}
+              className="hover:text-white cursor-pointer"
+            >
               TÉRMINOS Y CONDICIONES
-            </a>
+            </button>
           </li>
         </ul>
       </nav>
