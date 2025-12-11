@@ -9,7 +9,6 @@ import Button from "./Button";
 const Header = () => {
   const navigate = useNavigate();
 
-  //FIXME: adjunst grid and flexes
   return (
     <nav
       className={`
@@ -26,7 +25,7 @@ const Header = () => {
         <img
           src={logo}
           alt="Realmate"
-          className="h-[55px] w-auto object-contain"
+          className="h-[55px] w-auto object-contain bg-transparent"
         />
       </button>
 
